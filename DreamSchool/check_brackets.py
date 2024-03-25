@@ -1,18 +1,18 @@
 def check_brackets(string):
-    stack = []
+    stack = []  #用栈来进行括号配对
     result = ''
     
     for i, char in enumerate(string):
-        if char == '(':
+        if char == '(':   #左括号进栈
             stack.append(i)
         elif char == ')':
             if stack:
-                stack.pop()
+                stack.pop()  #当前为右括号且栈中有未配对的左括号，则配对成功，左括号弹出
             else:
-                result += '?'
+                result += '?' #无可配对左括号，输出？
     
     for index in stack:
-        result += 'x'
+        result += 'x'  #剩余未配对左括号，输出x
     
     return string + '\n' + result
 
